@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('dashboards', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('name')->default('Unnamed');
             $table->timestamps();
 
             $table->foreign(['user_id'])

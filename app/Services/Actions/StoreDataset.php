@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Services\Actions;
 
+use App\Models\Dashboard;
 use App\Models\DatasetRow;
 use App\Models\Dataset;
 use App\Models\User;

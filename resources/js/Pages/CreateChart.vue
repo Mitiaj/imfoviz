@@ -22,7 +22,7 @@
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
 import Card from "@/Components/Page/Card.vue";
-import UploadForm from "@/Components/Page/UploadForm";
+import UploadForm from "@/Components/Page/UploadDataset";
 
 export default {
     components: {

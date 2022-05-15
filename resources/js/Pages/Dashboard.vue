@@ -1,8 +1,14 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import { Head } from '@inertiajs/inertia-vue3';
-import Button from "@/Components/Button";
 import Card from "@/Components/Page/Card";
+import CreateNewDashboard from "@/Pages/Partials/Dashboard/CreateNewDashboard";
+
+
+defineProps({
+    dashboards: Array
+});
+
 </script>
 
 <template>
@@ -15,25 +21,30 @@ import Card from "@/Components/Page/Card";
             </h2>
         </template>
 
-
         <Card>
-            <Button type="button" @click="createChart">
-                <i class="fas fa-plus"></i>&nbsp;
-                Create new chart
-            </Button>
+            <template #header>
+                Your Works
+            </template>
+            <div id="dashboards" class="my-5">
+                Nothing yet..
+            </div>
         </Card>
+
+        <CreateNewDashboard
+            :user="$page.props.auth.user"
+        ></CreateNewDashboard>
+
 
     </BreezeAuthenticatedLayout>
 </template>
 
 <script>
-import {Inertia} from "@inertiajs/inertia";
-
 export default {
+    mounted() {
+        console.log(this.dashboards);
+    },
     methods: {
-        createChart() {
-            Inertia.visit(route('dashboard.create'));
-        }
+
     }
 }
 </script>
