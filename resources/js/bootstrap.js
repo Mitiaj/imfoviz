@@ -1,4 +1,5 @@
 window._ = require('lodash');
+// window.Highcharts = require('highcharts');
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening

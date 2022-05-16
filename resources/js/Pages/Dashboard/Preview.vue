@@ -1,7 +1,9 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import {Head} from '@inertiajs/inertia-vue3';
-import SetupDataset from "@/Pages/Partials/Dashboard/SetupDataset";
+import Card from "@/Components/Page/Card";
+import Chart from "@/Pages/Partials/Dashboard/Chart";
+import AddChart from "@/Pages/Partials/DashboardPreview/AddChart";
 
 
 defineProps({
@@ -22,7 +24,24 @@ defineProps({
             </h2>
         </template>
 
-<!--        <SetupDataset :dashboard="dashboard" :datasets="datasets"></SetupDataset>-->
+        <Card>
+            <template #header>
+            </template>
+            <div v-if="charts.length === 0">
+                Nothing yet..
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2">
+                <Chart></Chart>
+                <div class="grid-cell col-span-1 p-3">
+                    <div class="border rounded">
+                        <div class="border-b">content</div>
+                    </div>
+                </div>
+            </div>
+
+            <AddChart :dashboard="dashboard"></AddChart>
+        </Card>
 
     </BreezeAuthenticatedLayout>
 </template>

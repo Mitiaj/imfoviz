@@ -13,5 +13,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'auth:sanctum'], function () {
     Route::post('/dataset/upload', [DatasetController::class, 'upload'])->name('dataset.upload');
     Route::post('/dashboard/{dashboard}/update-dataset', [DashboardsController::class, 'update'])->name('dashboard.update-dataset');
-
+    Route::post('/dataset/{dataset}/query', [DatasetController::class, 'query'])->name('dataset.query');
 });
