@@ -26,17 +26,15 @@ defineProps({
 
         <Card>
             <template #header>
+                Dataset: {{ this.dashboard.dataset? this.dashboard.dataset.name.capitalize() : "Not set" }}
             </template>
             <div v-if="charts.length === 0">
                 Nothing yet..
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2">
-                <Chart></Chart>
-                <div class="grid-cell col-span-1 p-3">
-                    <div class="border rounded">
-                        <div class="border-b">content</div>
-                    </div>
+                <div v-for="chart in this.charts" class="grid-cell col-span-1 p-3">
+                    <Chart :type="chart.chart_type" :data="chart.data"></Chart>
                 </div>
             </div>
 

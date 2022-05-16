@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 final class Chart extends Model
 {
+    protected $casts = [
+        'data' => 'array'
+    ];
+
     final public function datasetInfo(): BelongsTo
     {
         return $this->belongsTo(Dataset::class);

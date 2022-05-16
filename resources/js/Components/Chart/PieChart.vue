@@ -6,13 +6,25 @@ export default {
     extends: Chart,
     methods: {
         draw() {
-            let series = [
-                {
-                    name: this.chartData.xAxisTitle,
-                    data: this.chartData.series.map(el => el.data[0])
+
+            let sum = this.chartData.series.map(el => el.data[0]).reduce((a, b) => a + b, 0);
+
+            console.log(sum);
+
+            let data = this.chartData.series.map(function (el) {
+                return {
+                    name: el.name,
+                    y: el.data[0] / sum * 100
                 }
-            ]
+            });
+
             Highcharts.chart(this.container, {
+                chart: {
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'pie'
+                },
                 title: {
                     text: this.chartData.title
                 },
@@ -28,9 +40,12 @@ export default {
                 },
 
                 xAxis: {
-                    accessibility: {
-                        rangeDeription: this.chartData.xAxisTitle
+                    title: {
+                        text: this.chartData.xAxisTitle
                     }
+                    // accessibility: {
+                    //     rangeDeription: this.chartData.xAxisTitle
+                    // }
                 },
 
                 legend: {
@@ -40,15 +55,21 @@ export default {
                 },
 
                 plotOptions: {
-                    series: {
-                        label: {
-                            connectorAllowed: false
-                        },
-                        pointStart: this.chartData.start,
+                    pie: {
+                        allowPointSelect: true,
+                        cursor: 'pointer',
+                        dataLabels: {
+                            enabled: true,
+                            format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                        }
                     }
                 },
 
-                series: series,
+                series: [{
+                        data: data
+
+                    }
+                ],
 
                 responsive: {
                     rules: [{

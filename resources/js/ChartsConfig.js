@@ -22,10 +22,6 @@ export default {
                 yAxisTitle: {
                     type: String,
                     required: false
-                },
-                series: {
-                    type: 'series',
-                    required: true
                 }
             }
 
@@ -50,10 +46,6 @@ export default {
                 yAxisTitle: {
                     type: String,
                     required: false
-                },
-                series: {
-                    type: 'series',
-                    required: true
                 }
             }
 
@@ -78,10 +70,6 @@ export default {
                 yAxisTitle: {
                     type: String,
                     required: false
-                },
-                series: {
-                    type: 'series',
-                    required: true
                 }
             }
         },
@@ -105,32 +93,100 @@ export default {
                 yAxisTitle: {
                     type: String,
                     required: false
-                },
-                series: {
-                    type: 'series',
-                    required: true
                 }
             }
         },
         {
             id: 'area',
             name: 'Area Chart',
-            logo: '/images/areachart.png'
+            logo: '/images/areachart.png',
+            fields: {
+                title: {
+                    type: String,
+                    required: false
+                },
+                subtitle: {
+                    type: String,
+                    required: false
+                },
+                xAxisTitle: {
+                    type: String,
+                    required: false
+                },
+                yAxisTitle: {
+                    type: String,
+                    required: false
+                }
+            }
         },
         {
             id: 'column_stacked',
             name: 'Stacked Column Chart',
-            logo: '/images/columnchart_stacked.png'
+            logo: '/images/columnchart_stacked.png',
+            fields: {
+                title: {
+                    type: String,
+                    required: false
+                },
+                subtitle: {
+                    type: String,
+                    required: false
+                },
+                xAxisTitle: {
+                    type: String,
+                    required: false
+                },
+                yAxisTitle: {
+                    type: String,
+                    required: false
+                }
+            }
         },
         {
             id: 'line_timeseries',
             name: 'Time Series Chart',
-            logo: '/images/linechart_timeseries.png'
+            logo: '/images/linechart_timeseries.png',
+            fields: {
+                title: {
+                    type: String,
+                    required: false
+                },
+                subtitle: {
+                    type: String,
+                    required: false
+                },
+                xAxisTitle: {
+                    type: String,
+                    required: false
+                },
+                yAxisTitle: {
+                    type: String,
+                    required: false
+                }
+            }
         },
         {
             id: 'bubble',
             name: 'Bubble Chart',
-            logo: '/images/bubblechart.png'
+            logo: '/images/bubblechart.png',
+            fields: {
+                title: {
+                    type: String,
+                    required: false
+                },
+                subtitle: {
+                    type: String,
+                    required: false
+                },
+                xAxisTitle: {
+                    type: String,
+                    required: false
+                },
+                yAxisTitle: {
+                    type: String,
+                    required: false
+                }
+            }
         },
     ]
 }

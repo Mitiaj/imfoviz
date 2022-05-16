@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
@@ -16,6 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 final class Dashboard extends Model
 {
     protected $with = ['dataset'];
+    protected $appends = ['chartCount'];
 
     final public function charts(): HasMany
     {
@@ -30,5 +32,10 @@ final class Dashboard extends Model
     final public function dataset(): BelongsTo
     {
         return $this->belongsTo(Dataset::class);
+    }
+
+    protected function getChartCountAttribute()
+    {
+        return count($this->charts);
     }
 }
